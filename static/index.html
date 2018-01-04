@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PGX_develop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <script src="../node_modules/amfe-flexible/index.js"></script>
+    <link rel="stylesheet" href="css/basic.css" type="text/css">
+</head>
+<body>
+<div id="appWrap">
+    <section id="appHeader"></section>
+    <section id="appContainer">
+        <h1>欢迎使用demo</h1>
+        <label class="appLink" data-link="demo1"><span>demo1</span></label>
+    </section>
+</div>
+</body>
+<script src="../node_modules/requirejs/require.js"></script>
+<script>
+  //    /*配置*/
+  require.config({
+    paths: {
+      jquery: '../node_modules/jquery/dist/jquery',
+//    zepto: '../node_modules/zepto/dist/zepto',
+      backbone: '../node_modules/backbone/backbone',
+      underscore: '../node_modules/underscore/underscore',
+      text: 'utils/require.text',                     // html的加载工具
+      style: '../node_modules/require-css/css',       // css的加载工具
+      // 项目工具
+      tools: 'utils/tools',
+      // 页面
+      appHeader: 'module/appHeader/main',
+      application:'app/main'
+    },
+    shim:{
+      "application":{
+        deps:[
+          "backbone",
+          'text',
+          'mock/backbone_route_mock', // 测试mock
+          'style'
+        ]
+      }
+    }
+  });
+
+  /*初始化*/
+  require(['application'], function (application) {
+    application.init();
+  });
+
+</script>
+</html>

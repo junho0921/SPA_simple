@@ -1,0 +1,23 @@
+<div class="main brk" id="demo1_wrap">
+	<div class="w">
+		<h1>HTML DOM backgroundImage 属性</h1>
+		<p>
+			定义和用法
+			backgroundImage 属性设置元素的背景图像。
+			语法：
+			Object.style.backgroundImage=url(URL)|none
+		</p>
+		<br>
+		<button class="requestBtn">点击请求数据</button>
+		<div id="demo1_reqData"></div>
+		<label class="appLink" data-link="demo2"><span>demo2</span></label>
+	</div>
+</div>
+
+<script type="text/html" id="demo1Tpl">
+	<% _.each(data, function (item, i) { %>
+		<li class="rankItem">
+			<%= item %>
+		</li>
+	<% }); %>
+</script>
